@@ -4,14 +4,21 @@
   color: #06acd7;
   background-color: #ffffff;
   border: 2px solid #06acd7;
+  border-radius: 0.1rem;
   margin-right: 1.25rem;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0.5);
+  outline: none;
   transition: 0.25s ease-in-out;
 }
 
 .btn:hover {
   cursor: pointer;
   box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-group {
+  padding: 1.25rem 2.5rem;
+  background-color: #ededed;
 }
 
 .success-btn {

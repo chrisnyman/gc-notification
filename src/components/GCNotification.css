@@ -1,0 +1,32 @@
+.GCNotification {
+  display: block;
+  padding: 0.625rem 1.25rem;
+}
+
+.GCNotification--msg {
+
+}
+
+.GCNotification--close {
+
+}
+
+.GCNotification--timer {
+  
+}
+
+.GCNotification__success {
+
+}
+
+.GCNotification__info {
+
+}
+
+.GCNotification__warning {
+
+}
+
+.GCNotification__danger {
+
+}
