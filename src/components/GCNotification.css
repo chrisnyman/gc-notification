@@ -1,22 +1,47 @@
 .GCNotification {
   display: block;
   padding: 0.625rem 1.25rem;
+  position: relative;
+  border-radius: 0.2rem;
+  overflow: hidden;
+}
+
+.GCNotification__banner {
+  width: 100%;
+}
+
+.GCNotification__toast {
+  width: 50%;
+  max-width: 400px;
 }
 
 .GCNotification--msg {
-
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .GCNotification--close {
+  width: 12px;
+  height: 14px;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}
 
+.GCNotification--close-icon {
+  fill: rgba(0, 0, 0, 0.2);
 }
 
 .GCNotification--timer {
-  
+  height: 5px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.05);
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
 .GCNotification__success {
-
+  background-color: #06d799;
 }
 
 .GCNotification__info {
@@ -28,5 +53,5 @@
 }
 
 .GCNotification__danger {
-
+background-color: #d7063f;
 }
