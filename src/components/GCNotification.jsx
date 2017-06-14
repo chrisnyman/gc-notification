@@ -16,10 +16,14 @@ class GCNotification extends Component {
   }
 
   componentDidMount() {
-    const timer = this.startTimer();
-    this.setState({
-      timer: timer
-    });
+    setTimeout(() => {
+      this._gcn.classList.remove("gcn-enter");
+      const timer = this.startTimer();
+      this.setState({
+        timer: timer
+      });
+    }, 1000);
+
   }
 
   startTimer() {
@@ -37,7 +41,13 @@ class GCNotification extends Component {
   }
 
   close = () => {
-    this.setState({isOpen: false});
+    if(this.state.isOpen) {
+      clearTimeout(this.state.timer);
+      this._gcn.classList.add("gcn-exit");
+      setTimeout(() => {
+        this.setState({isOpen: false});
+      }, 1000);
+    }
   }
 
   render() {
@@ -52,7 +62,8 @@ class GCNotification extends Component {
     if (this.state.isOpen) {
       return (
         <div
-          className={`GCNotification GCNotification__toast ${skinClass}`}
+          className={`GCNotification GCNotification__toast gcn-enter ${skinClass}`}
+          ref={(e) => this._gcn = e}
           onMouseEnter={this.pauseTimer}
           onMouseLeave={this.resetTimer}>
           <p className="GCNotification--msg">
