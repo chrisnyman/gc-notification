@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import GCNotification from './components/GCNotification';
+import GCNotificationContainer from './container/GCNotificationContainer';
+// import GCNotification from './components/GCNotification';
 
 import './App.css';
 
@@ -8,6 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <GCNotificationContainer />
         <h2>gc-notification</h2>
 
         <section>
@@ -30,9 +32,6 @@ class App extends Component {
 
         <section>
           <h4>Toast Notification</h4>
-          <GCNotification
-            message="This is a message. Isn't this fun"
-          />
         <p>Small animation that appears in the top right corner of the screen.</p>
 
           <div className="btn-group">

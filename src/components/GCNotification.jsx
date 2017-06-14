@@ -42,15 +42,17 @@ class GCNotification extends Component {
 
   render() {
 
-    var timerClass = classNames({
-      'GCNotification--timer': true,
-      'gcn-decreaseTimer': this.state.timer
+    var skinClass = classNames({
+      'GCNotification__success': this.props.type === 'success',
+      'GCNotification__info': this.props.type === 'info',
+      'GCNotification__warning': this.props.type === 'warning',
+      'GCNotification__danger': this.props.type === 'danger',
     });
 
     if (this.state.isOpen) {
       return (
         <div
-          className="GCNotification GCNotification__toast GCNotification__success"
+          className={`GCNotification GCNotification__toast ${skinClass}`}
           onMouseEnter={this.pauseTimer}
           onMouseLeave={this.resetTimer}>
           <p className="GCNotification--msg">
@@ -65,7 +67,7 @@ class GCNotification extends Component {
           </div>
 
           <div
-            className={timerClass}
+            className='GCNotification--timer gcn-decreaseTimer'
             ref={(e) => this._timerBar = e}
             />
 
@@ -80,6 +82,7 @@ class GCNotification extends Component {
 
 GCNotification.propTypes = {
   message: PropTypes.node.isRequired,
+  type: PropTypes.string.isRequired
 };
 
 export default GCNotification;

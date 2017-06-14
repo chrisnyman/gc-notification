@@ -4,15 +4,20 @@
   position: relative;
   border-radius: 0.2rem;
   overflow: hidden;
+  margin-bottom: 1.2rem;
 }
 
-.GCNotification__banner {
-  width: 100%;
-}
-
-.GCNotification__toast {
+.GCNotificationContainer {
   width: 50%;
   max-width: 400px;
+  position: absolute;
+  top: 1.25rem;
+  right: 4.5rem;
+}
+
+.GCNotification__banner,
+.GCNotification__toast {
+  width: 100%;
 }
 
 .GCNotification--msg {
@@ -45,24 +50,16 @@
   left: 0;
 }
 
-/*.GCNotification--timer-full {
-  width: 100%;
-}
-
-.GCNotification--timer-empty {
-  width: 0%;
-}*/
-
 .GCNotification__success {
   background-color: #06d799;
 }
 
 .GCNotification__info {
-
+  background-color: #06acd7;
 }
 
 .GCNotification__warning {
-
+  background-color: #d77106;
 }
 
 .GCNotification__danger {
