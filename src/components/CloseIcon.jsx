@@ -22,7 +22,6 @@ class CloseIcon extends Component {
 
 CloseIcon.propTypes = {
   size: PropTypes.node.isRequired,
-  color: PropTypes.string.isRequired,
 };
 
 export default CloseIcon;

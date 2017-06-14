@@ -45,6 +45,14 @@
   left: 0;
 }
 
+/*.GCNotification--timer-full {
+  width: 100%;
+}
+
+.GCNotification--timer-empty {
+  width: 0%;
+}*/
+
 .GCNotification__success {
   background-color: #06d799;
 }
@@ -59,4 +67,17 @@
 
 .GCNotification__danger {
 background-color: #d7063f;
+}
+
+/*   Animations   */
+/*================*/
+.gcn-decreaseTimer {
+  animation-name: decreaseTimer;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+}
+
+@keyframes decreaseTimer {
+  0%    { width: 100%; }
+  100%  { width: 0%; }
 }
