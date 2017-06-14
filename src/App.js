@@ -30,7 +30,7 @@ class App extends Component {
         <section>
           <h4>Toast Notification</h4>
           <GCNotification
-            message="This is a message"
+            message="This is a message. Isn't this fun"
           />
         <p>Small animation that appears in the top right corner of the screen.</p>
 
