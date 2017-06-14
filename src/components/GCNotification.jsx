@@ -27,16 +27,13 @@ class GCNotification extends Component {
   }
 
   resetTimer = () => {
-    clearTimeout(this.state.timer);
-    this.resetClass();
+    this._timerBar.classList.add("gcn-decreaseTimer");
     this.setState({ timer: this.startTimer() });
   }
 
-  resetClass = () => {
+  pauseTimer = () => {
+    clearTimeout(this.state.timer);
     this._timerBar.classList.remove("gcn-decreaseTimer");
-    setTimeout(() => {
-      this._timerBar.classList.add("gcn-decreaseTimer");
-    }, 100);
   }
 
   close = () => {
@@ -54,7 +51,8 @@ class GCNotification extends Component {
       return (
         <div
           className="GCNotification GCNotification__toast GCNotification__success"
-          onClick={this.resetTimer}>
+          onMouseEnter={this.pauseTimer}
+          onMouseLeave={this.resetTimer}>
           <p className="GCNotification--msg">
             {this.props.message}
           </p>
