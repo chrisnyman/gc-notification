@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class CloseIcon extends Component {
   render() {
-    const {size, color} = this.props;
+    const {size} = this.props;
     return (
       <svg
         viewBox="0 0 100 100"
