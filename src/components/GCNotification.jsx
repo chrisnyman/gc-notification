@@ -23,7 +23,10 @@ class GCNotification extends Component {
         timer: timer
       });
     }, 1000);
+  }
 
+  componentWillUnmount() {
+    clearTimeout(this.state.timer);
   }
 
   startTimer() {
@@ -51,12 +54,11 @@ class GCNotification extends Component {
   }
 
   render() {
-
     var skinClass = classNames({
-      'GCNotification__success': this.props.type === 'success',
-      'GCNotification__info': this.props.type === 'info',
-      'GCNotification__warning': this.props.type === 'warning',
-      'GCNotification__danger': this.props.type === 'danger',
+      'GCNotification__success': this.props.level === 'success',
+      'GCNotification__info': this.props.level === 'info',
+      'GCNotification__warning': this.props.level === 'warning',
+      'GCNotification__danger': this.props.level === 'danger',
     });
 
     if (this.state.isOpen) {
@@ -93,7 +95,7 @@ class GCNotification extends Component {
 
 GCNotification.propTypes = {
   message: PropTypes.node.isRequired,
-  type: PropTypes.string.isRequired
+  level: PropTypes.string.isRequired
 };
 
 export default GCNotification;

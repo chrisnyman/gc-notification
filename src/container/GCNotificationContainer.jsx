@@ -1,39 +1,64 @@
 import React, { Component } from 'react';
 import GCNotification from '../components/GCNotification';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addNotification } from '../actions/notificationActions';
 
-const meh = [
+const list = [
   {
-    type: 'info',
-    message: 'This is a message.'
+    message: 'This is an info message',
+    level: 'info'
   }, {
-    type: 'success',
-    message: 'This is another message.'
-  }, {
-    type: 'warning',
-    message: 'This is a message.'
-  }, {
-    type: 'danger',
-    message: 'This is another message.'
-  },
+    message: 'This is dangerous',
+    level: 'danger'
+  }
 ];
 
 class GCNotificationContainer extends Component {
-  render() {
-    const NotificationList = meh.map( n => {
+  constructor(props) {
+   super(props);
+  }
+
+  componentWillReceiveProps(newProps) {
+    const { message, level } = newProps.notification;
+  }
+
+  createNotificationList() {
+    return list.map( i => {
       return (
         <GCNotification
-          type={n.type}
-          message={n.message}
+          level={i.level}
+          message={i.message}
         />
       );
     });
+  }
 
-    return(
+  render() {
+    return (
       <div className="GCNotificationContainer">
-        { NotificationList }
+        {this.createNotificationList()}
       </div>
     );
   }
 }
 
-export default GCNotificationContainer;
+function mapStateToProps(state) {
+  return {
+    notification: state.notification
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return (
+    bindActionCreators({
+      addNotification
+    }, dispatch)
+  );
+}
+
+// export default GCNotificationContainer;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(GCNotificationContainer);

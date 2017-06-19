@@ -6,6 +6,7 @@
   overflow: hidden;
   margin-bottom: 1.2rem;
   box-sizing: border-box;
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
 
 .GCNotificationContainer {
@@ -14,7 +15,6 @@
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
-  transition: 1s ease-in;
 }
 
 .GCNotification__banner,
@@ -45,7 +45,7 @@
 
 .GCNotification--timer {
   height: 5px;
-  width: 100%;
+  width: 0%;
   background-color: rgba(0, 0, 0, 0.05);
   position: absolute;
   bottom: 0;
