@@ -8,10 +8,6 @@ import './App.css';
 
 
 class App extends Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
   renderNotificationList = () => {
     return this.props.notifications.map( i => {
       return (
@@ -26,26 +22,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {this.renderNotificationList()}
-        <h2>gc-notification</h2>
-
-        <section>
-          <h4>Notification Banner</h4>
-
-          <p>Banner that appears at the top of the page</p>
-
-          <div className="btn-group">
-            <button
-              className="success-btn btn">Success</button>
-            <button
-              className="info-btn btn">Information</button>
-            <button
-              className="warning-btn btn">Warning</button>
-            <button
-              className="danger-btn btn">Danger</button>
-          </div>
-
-        </section>
+        <div className="GCNotificationContainer">
+          {this.renderNotificationList()}
+        </div>
 
         <section>
           <h4>Toast Notification</h4>
@@ -53,14 +32,17 @@ class App extends Component {
 
           <div className="btn-group">
             <button
-              className="success-btn btn">Success</button>
+              className="success-btn btn"
+              onClick={() => this.props.onButtonPress('That was successful', 'success')}>Success</button>
             <button
-              className="info-btn btn">Information</button>
+              className="info-btn btn"
+              onClick={() => this.props.onButtonPress('This is just some information', 'info')}>Information</button>
             <button
-              className="warning-btn btn">Warning</button>
+              className="warning-btn btn"
+              onClick={() => this.props.onButtonPress('This is a warning message', 'warning')}>Warning</button>
             <button
               className="danger-btn btn"
-              onClick={() => this.props.onButtonPress('this is a message', 'danger')}>Danger</button>
+              onClick={() => this.props.onButtonPress('This is a dangerous message', 'danger')}>Danger</button>
           </div>
         </section>
       </div>

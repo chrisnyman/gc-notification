@@ -3,7 +3,6 @@ import {
 } from '../constants/ActionTypes';
 
 export default function notifications(state = [], action) {
-  console.log(action);
   switch (action.type) {
     case ADD_NOTIFICATION:
       return state.concat({
@@ -12,7 +11,7 @@ export default function notifications(state = [], action) {
       });
 
     default:
-      console.debug('notification reducer :: hit default', action.type);
+      // console.debug('notification reducer :: hit default', action.type);
       return state;
   }
 }
