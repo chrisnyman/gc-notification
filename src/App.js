@@ -1,30 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addNotification } from './actions/notificationActions';
-import GCNotification from './components/GCNotification';
+import GCNotificationSystem from './components/GCNotificationSystem';
 
 import './App.css';
 
-
 class App extends Component {
-  renderNotificationList = () => {
-    return this.props.notifications.map( i => {
-      return (
-        <GCNotification
-          level={i.level}
-          message={i.message}
-        />
-      );
-    });
-  }
-
   render() {
     return (
       <div className="App">
-        <div className="GCNotificationContainer">
-          {this.renderNotificationList()}
-        </div>
+        <GCNotificationSystem notifications={this.props.notifications}/>
 
         <section>
           <h4>Toast Notification</h4>
@@ -50,20 +35,4 @@ class App extends Component {
   }
 }
 
-// TODO put in own module
-function mapStateToProps(state) {
-  return {
-    notifications: state.notifications
-  };
-}
-
-const mapDispatchToProps = {
-  onButtonPress: addNotification
-};
-
-const AppContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
-
-export default AppContainer;
+export default App;
